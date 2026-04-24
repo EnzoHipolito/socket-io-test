@@ -51,9 +51,8 @@ function addMessage(username, text, type = 'other') {
 
 function sendMessage() {
     const mensagemInput = document.getElementById('mensagem')
-    const usernameInput = document.getElementById('username')
     const text = mensagemInput.value.trim()
-    const username = usernameInput.value.trim() || 'Anônimo'
+    const username = 'Anônimo'
 
     if (!text) return
 

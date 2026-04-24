@@ -298,10 +298,79 @@ body {
 
 .send-btn:active { transform: scale(0.95); }
 
+/* ── Auth Pages ── */
+.auth-app {
+    max-width: 380px;
+    height: auto;
+    max-height: none;
+    padding: 45px 32px;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.auth-header .chat-title {
+    font-size: 26px;
+    margin-bottom: 6px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.auth-input {
+    width: 100%;
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    transition: all 0.2s;
+}
+
+.auth-input:focus {
+    border-color: rgba(124, 58, 237, 0.45);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+.auth-btn {
+    width: 100%;
+    border-radius: var(--radius-md);
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 8px;
+    justify-content: center;
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.auth-link a {
+    color: var(--accent-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.auth-link a:hover {
+    color: var(--accent-primary);
+}
+
 /* ── Responsive ── */
 @media (max-width: 720px) {
     .app {
         border-radius: 0;
         max-height: 100vh;
+    }
+    .auth-app {
+        padding: 40px 20px;
     }
 }

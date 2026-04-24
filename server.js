@@ -5,12 +5,18 @@ const http = require('http')
 const { Server } = require('socket.io')
 const server = http.createServer(app)
 const io = new Server(server)
-const PORT = process.env.PORT || 3000
+const db = require('./db/conn')
+const PORT = 3000
 
 app.use(express.static('public'))
 app.use(express.json())
 app.use(cors())
 
+// Rotas HTTP
+
+
+
+// Socket.IO
 const users = {}
 
 io.on('connection', (socket) => {
@@ -42,6 +48,12 @@ io.on('connection', (socket) => {
     })
 })
 
-server.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`)
+db.sync()
+.then(() => {
+    server.listen(PORT, () => {
+        console.log(`Servidor rodando em http://localhost:${PORT}`)
+    })
+})
+.catch((error) => {
+    console.log(error)
 })

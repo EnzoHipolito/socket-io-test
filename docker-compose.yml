@@ -1,6 +1,22 @@
-version: '3.8'
-
 services:
+  db:
+    image: mysql:8
+    container_name: socket-io-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: senai
+      MYSQL_DATABASE: bd_02
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-psenai"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
   app:
     build: .
     container_name: socket-io-chat
@@ -9,4 +25,14 @@ services:
     environment:
       - PORT=3000
       - NODE_ENV=production
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASS=senai
+      - DB_NAME=bd_02
+    depends_on:
+      db:
+        condition: service_healthy
     restart: unless-stopped
+
+volumes:
+  db_data:

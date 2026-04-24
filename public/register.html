@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Chat</title>
+    <meta name="description" content="Crie uma conta para acessar o chat">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app auth-app">
+        <div class="auth-header">
+            <h1 class="chat-title">Criar Conta</h1>
+            <span class="chat-subtitle">Junte-se ao chat ao vivo</span>
+        </div>
+        
+        <form class="auth-form">
+            <input type="text" placeholder="Nome de usuário" name="username" class="input-field auth-input" required autocomplete="off">
+            <input type="password" placeholder="Senha" name="password" class="input-field auth-input" required>
+            <input type="password" placeholder="Confirme a senha" name="confirm_password" class="input-field auth-input" required>
+            <button type="submit" class="send-btn auth-btn">Registrar</button>
+        </form>
+        
+        <div class="auth-link">
+            Já tem uma conta? <a href="login.html">Faça login</a>
+        </div>
+        <script src="./scripts/register.js"></script>
+    </div>
+</body>
+</html>

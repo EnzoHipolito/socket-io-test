@@ -5,7 +5,7 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: senai
-      MYSQL_DATABASE: bd_02
+      MYSQL_DATABASE: bd_03
     ports:
       - "3307:3306"
     volumes:
@@ -28,7 +28,7 @@ services:
       - DB_HOST=db
       - DB_USER=root
       - DB_PASS=senai
-      - DB_NAME=bd_02
+      - DB_NAME=bd_03
     depends_on:
       db:
         condition: service_healthy

@@ -7,6 +7,7 @@ const server = http.createServer(app)
 const io = new Server(server)
 const db = require('./db/conn')
 const PORT = 3000
+const usuarioController = require('./controller/usuario.controller')
 
 app.use(express.static('public'))
 app.use(express.json())
@@ -14,7 +15,9 @@ app.use(cors())
 
 // Rotas HTTP
 
-
+app.post('/registrar', usuarioController.registrar)
+app.post('/login', usuarioController.login)
+app.get('/listar', usuarioController.listar)
 
 // Socket.IO
 const users = {}

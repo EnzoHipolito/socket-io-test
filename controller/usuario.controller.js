@@ -3,9 +3,9 @@ const { generateToken, verifyToken } = require('../service/jwt.service')
 const { generateHash, compareHash } = require('../service/bcrypt.service')
 
 const registrar = async (req, res) => {
-    const {valores} = req.body
+    const valores = req.body
 
-    const passwordCript = generateHash(valores.password)
+    const passwordCript = await generateHash(valores.password)
 
     try{
         await Usuario.create({
@@ -22,11 +22,25 @@ const registrar = async (req, res) => {
 }
 
 const login = async (req, res) => {
-    const {valores} = req.body
+    const valores = req.body
 
     try{
-        const usuario = await Usuario.findOne({where: valores.username})
-        const passwordC = compareHash(valores.password, usuario.password)
+        const usuario = await Usuario.findOne({where: {username: valores.username}})
+
+        if(!usuario){
+            console.log('Usuario não encontrado')
+            res.status(404).json({erro: "Usuario não encontrado!"})
+        }
+
+        const passwordC = await compareHash(valores.password, usuario.password)
+
+        if(passwordC){
+            const token = generateToken({
+                id: usuario.id,
+                username: usuario.username
+            })
+            res.status(200).json({message: "Usuario logado com sucesso!", token})
+        }
     }
     catch(err){
         console.error('Erro ao realizar o login do usuario', err)
@@ -37,7 +51,7 @@ const login = async (req, res) => {
 const listar = async (req, res) => {
     try{
         const usuarios = await Usuario.findAll({raw: true})
-        res.status(200).json({usuario})
+        res.status(200).json({usuarios})
     }
     catch(err){
         console.error('Erro ao realizar o login do usuario', err)

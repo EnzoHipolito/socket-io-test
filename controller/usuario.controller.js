@@ -29,7 +29,7 @@ const login = async (req, res) => {
 
         if(!usuario){
             console.log('Usuario não encontrado')
-            res.status(404).json({erro: "Usuario não encontrado!"})
+            res.status(404).json({message: "Usuario não encontrado!"})
         }
 
         const passwordC = await compareHash(valores.password, usuario.password)
@@ -39,7 +39,7 @@ const login = async (req, res) => {
                 id: usuario.id,
                 username: usuario.username
             })
-            res.status(200).json({message: "Usuario logado com sucesso!", token})
+            res.status(200).json({token: token})
         }
     }
     catch(err){

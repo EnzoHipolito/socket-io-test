@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="./scripts/login.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,13 +21,12 @@
         <form class="auth-form">
             <input type="text" placeholder="Usuário" id="username" class="input-field auth-input" required autocomplete="off">
             <input type="password" placeholder="Senha" id="password" class="input-field auth-input" required>
-            <button type="submit" class="send-btn auth-btn">Entrar no Chat</button>
+            <button type="submit" class="send-btn auth-btn" id="auth-btn">Entrar no Chat</button>
         </form>
         
         <div class="auth-link">
             Não tem uma conta? <a href="register.html">Registre-se</a>
         </div>
-        <script src="./scripts/login.js"></script>
     </div>
 </body>
 </html>

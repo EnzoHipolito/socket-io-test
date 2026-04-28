@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="./scripts/register.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,16 +19,14 @@
         </div>
         
         <form class="auth-form">
-            <input type="text" placeholder="Nome de usuário" name="username" class="input-field auth-input" required autocomplete="off">
-            <input type="password" placeholder="Senha" name="password" class="input-field auth-input" required>
-            <input type="password" placeholder="Confirme a senha" name="confirm_password" class="input-field auth-input" required>
-            <button type="submit" class="send-btn auth-btn">Registrar</button>
+            <input type="text" placeholder="Nome de usuário" name="username" class="input-field auth-input" id="username" required autocomplete="off">
+            <input type="password" placeholder="Senha" name="password" class="input-field auth-input" id="password" required>
+            <button type="submit" class="send-btn auth-btn" id="auth-btn">Registrar</button>
         </form>
         
         <div class="auth-link">
             Já tem uma conta? <a href="login.html">Faça login</a>
         </div>
-        <script src="./scripts/register.js"></script>
     </div>
 </body>
 </html>

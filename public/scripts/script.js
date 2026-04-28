@@ -5,6 +5,8 @@ const btn = document.getElementById('btn')
 const statusDot = document.getElementById('status-dot')
 const statusText = document.getElementById('status-text')
 const onlineCountEl = document.getElementById('online-count')
+const username = localStorage.getItem('username')
+console.log('username')
 
 function getTime() {
     const now = new Date()
@@ -52,7 +54,6 @@ function addMessage(username, text, type = 'other') {
 function sendMessage() {
     const mensagemInput = document.getElementById('mensagem')
     const text = mensagemInput.value.trim()
-    const username = 'Anônimo'
 
     if (!text) return
 

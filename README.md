@@ -1,6 +1,6 @@
 # 💬 rl-chat
 
-Aplicação de **chat em tempo real** com autenticação de usuários, construída com Node.js e Socket.IO.
+Aplicação de **chat em tempo real** com autenticação de usuários, construída com Node.js e Socket.IO, criada para aprender mais sobre os frameworks e exercitar minha lógica!
 
 Permite que usuários se registrem, façam login e troquem mensagens instantaneamente, com exibição do número de pessoas online em tempo real.
 
